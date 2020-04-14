@@ -11,7 +11,16 @@
  */
 
 function reverse(str) {
+    let length = str.length;
+    let result = '';
+    
+    for(let i = length - 1; i >= 0; i--) {
+        result += str[i];
+    }
 
+    return result;
 }
+
+// reverse('hello')
 
 module.exports = reverse;
