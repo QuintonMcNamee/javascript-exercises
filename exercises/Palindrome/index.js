@@ -14,7 +14,16 @@
  */
 
 function palindrome(str) {
-
+    let length = str.length;
+    let reverse = '';
+    for (let i = length - 1; i >= 0; i--) {
+        reverse += str[i];
+    }
+    if (reverse === str) {
+        return true;
+    } else {
+        return false;
+    }
 }
 
 module.exports = palindrome;
