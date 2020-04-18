@@ -19,7 +19,7 @@ function reverse(int) {
     while(int != 0) {
         num = int % 10;
         result = result * 10 + num;
-        int = parseInt(int / 10);
+        int = Math.trunc(int / 10);
         console.log(int)
     }
     
