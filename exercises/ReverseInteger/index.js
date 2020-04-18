@@ -13,7 +13,19 @@
  */
 
 function reverse(int) {
+    let num = 0;
+    let result = 0;
 
+    while(int != 0) {
+        num = int % 10;
+        result = result * 10 + num;
+        int = parseInt(int / 10);
+        console.log(int)
+    }
+    
+    return result;
 }
+
+reverse(-123456)
 
 module.exports = reverse;
