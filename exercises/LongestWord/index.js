@@ -13,7 +13,31 @@
 */
 
 function longestWord(sen) {
+    let longest = '';
+    let currWord = '';
+    let counter = 0;
+    let punctuation = '!"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~';
 
+    for(let letter = 0; letter < sen.length; letter++) {
+        for(let i = 0; i < punctuation.length; i++) {
+            if (punctuation[i] === sen[letter]){
+                sen = sen.slice(letter, 1)
+            }
+            if (sen[letter] === ' ') {
+                currWord = '';
+                counter = 0;
+            } else {
+                currWord += sen[letter];
+                counter++;
+            }
+            if (counter > longest.length) {
+                longest = currWord;
+            }
+        }
+    }
+    return longest;
 }
+
+console.log(longestWord('hello&&&& world!'));
 
 module.exports = longestWord;
