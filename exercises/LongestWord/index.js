@@ -20,24 +20,27 @@ function longestWord(sen) {
 
     for(let letter = 0; letter < sen.length; letter++) {
         for(let i = 0; i < punctuation.length; i++) {
-            if (punctuation[i] === sen[letter]){
-                sen = sen.slice(letter, 1)
-            }
-            if (sen[letter] === ' ') {
-                currWord = '';
-                counter = 0;
-            } else {
-                currWord += sen[letter];
-                counter++;
-            }
-            if (counter > longest.length) {
-                longest = currWord;
+            if (punctuation[i] === sen[letter]) {
+                console.log('before: ', sen);
+                sen = sen.substring(0, letter) + sen.substring(letter + 1, sen.length);
+                console.log('after: ', sen);
+                i--;
             }
         }
+        if (sen[letter] === ' ') {
+            currWord = '';
+            counter = 0;
+        } else {
+            currWord += sen[letter];
+            counter++;
+        }
+        if (counter > longest.length) {
+            longest = currWord;
+        }
     }
-    return longest;
+    console.log(longest);
 }
 
-console.log(longestWord('hello&&&& world!'));
+longestWord('hel!lo& world&');
 
 module.exports = longestWord;
