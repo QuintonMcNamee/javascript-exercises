@@ -11,7 +11,8 @@
 */
 
 function isEven(n) {
-
+    //bitwise operation
+    return !(n & 1)
 }
 
 module.exports = isEven;
